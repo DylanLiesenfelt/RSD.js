@@ -1,0 +1,15 @@
+{
+  "name": "rsd",
+  "version": "0.0.1",
+  "description": "Random Story Dungeon",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "qTest"
+  },
+  "author": "Dylan Liesenfelt",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0"
+  }
+}
