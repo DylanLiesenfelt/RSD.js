@@ -26,5 +26,5 @@ startButton.addEventListener("click", startGame);
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
-
+`~`
 const test = document.getElementById('testButton');
