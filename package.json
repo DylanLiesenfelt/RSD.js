@@ -1,26 +1,15 @@
 {
   "name": "rsd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Random Story Dungeon",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
     "test": "qTest",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "start": "electron ."
   },
   "author": "Dylan Liesenfelt",
   "license": "MIT",
   "devDependencies": {
-    "@electron-forge/cli": "^6.4.2",
-    "@electron-forge/maker-deb": "^6.4.2",
-    "@electron-forge/maker-rpm": "^6.4.2",
-    "@electron-forge/maker-squirrel": "^6.4.2",
-    "@electron-forge/maker-zip": "^6.4.2",
-    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
-    "electron": "^27.0.0"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron": "^27.0.1"
   }
 }
