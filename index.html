@@ -6,49 +6,28 @@
     <title>Random Story Dungeon</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="wrap">
     <main class="wrap">
-        <div id="startWindow" class="wrap">
+        <div id="startWindow" class="wrap window">
             <div class="wrap">
-                <h2>Random Story Dungeon</h2>
-                <h4>By Dylan Liesenfelt</h4>
+                <h1>Random Story Dungeon</h1>
+                <h3>Created By: Dylan Liesenfelt</h3>
+                <a href="http://www.Liesenfelt.net">www.Liesenfelt.net</a>
             </div>
-            <div class="wrap">       
-                <button id="startButton">START</button>
-            </div>      
+            <div class="wrap">
+                <button id="startButton">Start</button>
+            </div>
         </div>
-        <div id="gameWindow">
-            <div id="playerWindow">
-                <div id="statsWindow">
-                    <h3>STATS</h3>
-                    <div id="playerStats">
-                        <h5 class="stat">LEVEL: 
-                            <p id="levelValue">1</p>
-                        </h5>
-                        <h5 class="stat">HEALTH: 
-                            <p id="healthValue">10</p>
-                        </h5>
-                        <h5 class="stat">ATK:
-                            <p id="attackValue">1</p>
-                        </h5>
-                        <h5 class="stat">DEF:
-                            <p id="defenceValue">1</p>
-                        </h5>
-                    </div>
-                </div>
-                <div id="inventoryWindow">
-                    <h3>INVENTORY</h3>
-                    <div>
-                        <button id="testButton">TEST</button>
-                    </div>
-                </div>
+        <div id="gameWindow" class="wrap window">
+            <div id="playerWindow" class="wrap">
+                
             </div>
-            <div id="contentWindow">
-                <div id="imageWindow">
+            <div id="storyWindow" class="wrap">
+                <div id="imageArea" class="wrap">
 
                 </div>
-                <div id="textWindow">
-
+                <div id="textArea" class="wrap">
+                    
                 </div>
             </div>
         </div>
