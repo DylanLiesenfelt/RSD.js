@@ -1,9 +1,13 @@
+/*=============================================
+=                   GLOBALS                   =
+=============================================*/
 * {
     padding: 0;
     margin: 0;
     overflow: hidden;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: calc(1vw + 1vh);
 }
 
 a {
@@ -15,6 +19,7 @@ a:visited {
     color: inherit;
     text-decoration: none;
 }
+
 .wrap {
     display: flex;
     align-items: center;
@@ -28,69 +33,288 @@ a:visited {
     width: 95%;
 }
 
+
+/*=============================================
+=                  ELEMENTS                  =
+=============================================*/
 body {
     background-color: rgb(6, 25, 34);
     height: 100vh;
     width: 100%;
 }
 
+/*----------  Main  ----------*/
 main {
     height: 100%;
     width: 100%;
 }
 
+/*----------  Start Window  ----------*/
 #startWindow {
     visibility: hidden;
     flex-direction: column;
 }
+    
+    /* Top and Bottom Divs of Main */
+    #startWindow>div {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
 
-#startWindow>div {
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
+        /* Start Button */
+        #startButton {
+            height: 20%;
+            width: 15%;
+            border: 5px double white;
+            background-color: inherit;
+        }
 
-#startButton {
-    height: 20%;
-    width: 15%;
-    border: 5px double white;
-    background-color: inherit;
-}
+        #startButton:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
 
-#startButton:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
+        #startButton:active {
+            background-color: rgba(0, 0, 0, 0.211);
+            color: rgb(38, 101, 226);
+            border-color: rgb(38, 101, 226);
+            box-shadow: 0 0 5px 5px;
+        }
 
-#startButton:active {
-    background-color: rgba(0, 0, 0, 0.211);
-    color: rgb(38, 101, 226);
-    border-color: rgb(38, 101, 226);
-    box-shadow: 0 0 5px 5px;
-}
-
+/*----------  Game Window   ----------*/
 #gameWindow {
     visibility: visible;
+    min-width: 700px;
+    min-height: 550px;
+    max-height: 800px;
+    max-width: 1150px;
 }
 
+/* Player Window  */
 #playerWindow {
     border-right: 5px double white;
     height: 100%;
     width: 35%;
-}
-
-#storyWindow {
-    height: 100%;
-    width: 65%;
+    min-width: 275px;
+    min-height: 550px;
     flex-direction: column;
 }
 
-#imageArea {
-    height: 65%;
-    width: 100%;
-}
+    /* Stats Area */
+    #statsArea {
+        border-bottom: 5px double white;
+        width: 100%;
+        height: 100%;
+        min-width: 250px;
+        min-height: 250px;
+    }
 
-#textArea {
-    border-top: 5px solid white;
-    height: 35%;
-    width: 100%;
+        #statsContainer {
+            background-color: white;
+            height: 94%;
+            width: 94%;
+            flex-direction: column;
+        }
+
+            #statsInfoBar {
+                height: 10.015%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.75);
+
+            }
+
+            #statsDisplay {
+                height: 80%;
+                width: 100%;
+            }
+
+                #statsDisplay>ul {
+                    height: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 1.5%;
+                }
+                    #statsDisplay>ul>li {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        color: black;
+                    }
+
+            #playerLevelBar {
+                width: 100%;
+                height: 10.015%;
+                background-color: rgba(0, 0, 0, 0.75);
+            }
+
+
+                #playerLevel {
+                    height: 100%;
+                    width: 25%;
+                    justify-content: flex-start;
+                    padding-left: 1.5%;
+                }
+
+                #expContainer {
+                    height: 100%;
+                    width: 75%;
+                    padding-right: 1.5%;
+                }  
+
+                    #expBar  {
+                        background-color: white;
+                        border-radius: 1rem;
+                        color: black;
+                        width: 100%;
+                    }
+
+
+    /* Inventory Area */
+    #inventoryArea {
+        width: 100%;
+        height: 100%;
+        min-width: 250px;
+        min-height: 250px;
+    }
+
+        #inventoryContainer {
+            background-color: white;
+            height: 94%;
+            width: 94%;
+            flex-direction: column;
+        }
+            #inventoryInfoBar {
+                background-color: rgba(0, 0, 0, 0.75);
+                height: 11.26%;
+                width: 100%;
+            }
+
+                #inventoryTitle {
+                    height: 100%;
+                    width: 100%;
+                    padding-left: 1.5%;
+                    justify-content: flex-start;
+                }
+
+                #inventoryWeight {
+                    height: 100%;
+                    width: 100%;
+                    padding-right: 1.5%;
+                    justify-content: flex-end;
+
+                }
+
+            #inventoryDisplay {
+                height: 100%;
+                width: 100%;
+
+            }
+
+
+
+/* Story Window  */
+#storyWindow {
+    height: 100%;
+    width: 65%;
+    min-height: 550px;
+    min-width: 450px;
+    flex-direction: column;
 }
+        
+    /* Image Area */  
+    #imageArea {
+        height: 60%;
+        width: 100%;
+    }
+
+        #imageContainer {
+            background-color: white;
+            height: 95%;
+            width: 96.9%;
+            flex-direction: column;
+        }
+
+            #imageInfoBar{
+                background-color: rgba(0, 0, 0, 0.75);
+                height: 9%;
+                width: 100%;
+            }
+
+                #imageInfoBar>div {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                #roomName {
+                    justify-content: flex-start;
+                    padding-left: 1%;
+                }
+
+                #roomCounter {
+                    justify-content: flex-end;
+                    padding-right: 1%;
+                }
+
+            #imageDisplay {
+                height: 100%;
+                width: 100%;
+            }
+
+    /* Text Area */
+    #textArea {
+        border-top: 5px solid white;
+        height: 40%;
+        width: 100%;
+    }
+
+        #textContainer {
+            background-color: white;
+            height: 93%;
+            width: 97%;
+            flex-direction: column;
+        }
+
+            #textInfoBar {
+                height: 10%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.75);
+                justify-content: flex-end;
+            }
+
+                #gameClockDisplay{
+                    height: 100%;
+                    font-size: 1vw;
+                    margin-right: 1%;
+                    padding: 1%;
+                }
+
+            #textContent {
+                height: 100%;
+                width: 100%;
+                overflow: auto;
+
+            }
+
+            #textControlBar {
+                height: 30%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.10);
+                justify-content: space-evenly;
+
+            }
+
+                .controls {
+                    border: none;
+                    outline: 1px solid rgba(0, 0, 0, 0.124);
+                    height: 100%;
+                    width: 100%;
+                    font-size: 1.5vw;
+                    color: black;
+                    visibility: hidden;
+                }
+                
+                .controls:active {
+                    box-shadow: inset 0 0 15px 5px rgba(0, 128, 255, 0.497);
+                    color: rgba(0, 162, 255, 0.635);
+                    background-color: rgba(255, 255, 255, 0.116);
+                }
