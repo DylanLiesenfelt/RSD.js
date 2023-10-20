@@ -168,6 +168,10 @@ main {
                         width: 100%;
                     }
 
+                    #expBar>p {
+                        color: black;
+                    }
+
 
     /* Inventory Area */
     #inventoryArea {
