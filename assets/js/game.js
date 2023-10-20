@@ -1,10 +1,10 @@
 /*=============================================
 =                  Variables                 =
 =============================================*/
+
 /*----------  Window Variables ----------*/
 const startWindow = document.getElementById('startWindow');
 const gameWindow = document.getElementById('gameWindow')
-
 /*----------  Element Variables  ----------*/
 const startButton = document.getElementById('startButton');
 /* Player Display Elements */
@@ -25,7 +25,6 @@ const nextLevelExp = document.getElementById('nextLevelExp')
 const inventoryWeight = document.getElementById('inventoryWeight');
 const currentWeight = document.getElementById('currentWeight')
 const maxWeight = document.getElementById('maxWeight')
-
 /* Story Display Elements */
 const gameClockDisplay = document.getElementById('gameClockDisplay')
 
@@ -87,13 +86,6 @@ let heldWeight = 0;
 currentWeight.textContent = `${heldWeight}`
 let overcumber = 100;
 maxWeight.textContent = `${overcumber} LBS`
-
-
-
-
-
-
-
 
 /*=============================================
 =                Game Runtime                =
