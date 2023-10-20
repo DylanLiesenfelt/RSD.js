@@ -1,9 +1,38 @@
-//Window variables
-const startButton = document.getElementById('startButton');
+
+/*----------  Window Variables ----------*/
 const startWindow = document.getElementById('startWindow');
 const gameWindow = document.getElementById('gameWindow')
 
-//Game Clock
+/*----------  Element Variables  ----------*/
+
+/* Player Display Elements */
+const startButton = document.getElementById('startButton');
+const playerName = document.getElementById('playerName');
+const healthLevel = document.getElementById('healthLevel');
+const attackLevel = document.getElementById('attackLevel');
+const defenseLevel = document.getElementById('defenseLevel');
+const dexterityLevel = document.getElementById('dexterityLevel');
+const magicLevel = document.getElementById('magicLevel');
+const luckLevel = document.getElementById('luckLevel');
+const cookingLevel = document.getElementById('cookingLevel');
+const smithingLevel = document.getElementById('smithingLevel');
+const fishingLevel = document.getElementById('fishingLevel');
+const playerLevel = document.getElementById('playerLevel');
+const expBar = document.getElementById('expBar');
+const inventoryWeight= document.getElementById('inventoryWeight');
+const  = document.getElementById('');
+const  = document.getElementById('');
+const  = document.getElementById('');
+const  = document.getElementById('');
+const  = document.getElementById('');
+const  = document.getElementById('');
+const  = document.getElementById('');
+
+
+
+
+
+/*----------  Game Clock  ----------*/
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
