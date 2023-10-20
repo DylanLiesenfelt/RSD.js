@@ -19,57 +19,39 @@ const smithingLevel = document.getElementById('smithingLevel');
 const fishingLevel = document.getElementById('fishingLevel');
 const playerLevel = document.getElementById('playerLevel');
 const expBar = document.getElementById('expBar');
-const inventoryWeight= document.getElementById('inventoryWeight');
-const  = document.getElementById('');
-const  = document.getElementById('');
-const  = document.getElementById('');
-const  = document.getElementById('');
-const  = document.getElementById('');
-const  = document.getElementById('');
-const  = document.getElementById('');
+const inventoryWeight = document.getElementById('inventoryWeight');
 
-
-
+const gameClockDisplay = document.getElementById('gameClockDisplay')
 
 
 /*----------  Game Clock  ----------*/
+//Function to delay itterations
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-async function gameClock (){
+//Function to count time 
+async function gameClock() {
     for (let hours = 0; hours < 24; hours++) {
-        for (let minuets = 0; minuets < 60; minuets++) {
+        for (let minutes = 0; minutes < 60; minutes++) {
             for (let seconds = 0; seconds < 60; seconds++) {
-                console.log(hours,':',minuets,':',seconds)
-                await sleep(seconds * 1000);
+                const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                gameClockDisplay.querySelector('#currentTime').textContent = timeString;
+                await sleep(1000);
             }
         }
     }
 }
 
-//Player class
-
-//level class and array
-
-//enemy class and array
-
-//loot, loot array and loot tables
-
-//combat functions
-
-//testing area
 
 /*=============================================
 =                Game Runtime                =
 =============================================*/
 function startGame() {
-    //Start up processes
     startWindow.style.visibility = "hidden";
     gameWindow.style.visibility = 'visible';
     console.log("Game Start");
-    gameClock();
-};
+    timeElapsed = gameClock();
+}
 
 startButton.addEventListener("click", startGame);
 

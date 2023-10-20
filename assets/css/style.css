@@ -281,12 +281,29 @@ main {
                 justify-content: flex-end;
             }
 
-                #gameClockDisplay{
+                #gameClockDisplay {
+                    width: 50%;
                     height: 100%;
-                    font-size: 1vw;
-                    margin-right: 1%;
-                    padding: 1%;
+                    justify-content: flex-end;
+                    
                 }
+
+                    #gameClockDisplay>p {
+                        height: 100%;
+                        width: 25%;
+                        justify-content: flex-end;
+                        padding-right: 1%;
+                        font-size: calc(0.5vw + 0.5vh);
+                    }
+
+                    #currentTime {
+                        height: 100%;
+                        width: 15%;
+                        padding-left: 1%;
+                        justify-content: flex-start;
+                        font-size: calc(0.5vw + 0.5vh);
+                        color: rgb(255, 238, 0);
+                    }
 
             #textContent {
                 height: 100%;
