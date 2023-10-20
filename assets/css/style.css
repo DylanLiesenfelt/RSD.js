@@ -51,7 +51,7 @@ main {
 
 /*----------  Start Window  ----------*/
 #startWindow {
-    visibility: hidden;
+    visibility: visible;
     flex-direction: column;
 }
     
@@ -83,7 +83,7 @@ main {
 
 /*----------  Game Window   ----------*/
 #gameWindow {
-    visibility: visible;
+    visibility: hidden;
     min-width: 700px;
     min-height: 550px;
     max-height: 800px;
