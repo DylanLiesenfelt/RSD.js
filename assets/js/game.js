@@ -29,20 +29,33 @@ const maxWeight = document.getElementById('maxWeight');
 const roomName = document.getElementById('roomName');
 const roomCounter = document.getElementById('roomCounter');
 const imageDisplay = document.getElementById('imageDisplay');
+const enemyDisplay = document.getElementById('enemyDisplay');
+const enemyInfo = document.getElementById('enemyInfo');
 const gameClockDisplay = document.getElementById('gameClockDisplay');
+const textDisplay = document.getElementById('textDisplay');
+const meleeButton = document.getElementById('meleeButton');
+const magicButton = document.getElementById('magicButton');
+const choice1Button = document.getElementById('choice1Button');
+const choice2Button = document.getElementById('choice2Button');
+const choice3Button = document.getElementById('choice3Button');
+const runButton = document.getElementById('runButton');
+
 
 
 /*=============================================
 =                    Rooms                    =
 =============================================*/
+let roomCounterValue = 0
 class Room {
-    constructor(name, level, image, message) {
+    constructor(name, image, message) {
         this.name = name;
-        this.level = level;
         this.image = image;
         this.message = message;
     };
 };
+
+const entrance = new Room('Entrance', 'assets/images/Rooms/Entrance.jpg', 'You\'ve found the entrance to a Dungeon do you wish to Enter?');
+
 const roomList = [];
 
 
@@ -61,8 +74,8 @@ class Enemy {
     };
 };
 
-const rat = new Enemy('Rat', 1, 5, 1, 1, 1, '');
-const slime = new Enemy('Slime', 2, 10, 1, 2, 1, ''); 
+const rat = new Enemy('Rat', 1, 5, 1, 1, 1, 'assets/images/Enemies/rat.png');
+const slime = new Enemy('Slime', 2, 10, 1, 2, 1, 'assets/images/Enemies/slime.png'); 
 const gobbler = new Enemy('Gobbler', 3, 10, 3, 3, 2, ''); //goblin. but more gobble, maybe that thing turkeys got on thier throats
 const basklisk = new Enemy('Basklisk', 5, 20, 5, 10, 5, ''); //beefy lizard
 const gardenHermit = new Enemy('Garden Hermit', 5, 15, 3, 3, 10, ''); // old man wearing a trash bag 
@@ -165,12 +178,27 @@ async function gameClock() {
 
 
 /*----------  Load Enemy  ----------*/
+function pullEnemy() {
+    let randomEnemy = Math.floor(Math.random() * enemyList.length);
+    let selectedEnemy = enemyList[randomEnemy];
 
+    while (selectedEnemy.level > level + 2 || selectedEnemy.level < level - 5) {
+        randomEnemy = Math.floor(Math.random() * enemyList.length);
+        selectedEnemy = enemyList[randomEnemy];
+    }
 
+    return selectedEnemy;
+};
+
+let enemy = pullEnemy(enemyList, level);
+
+function loadEnemy(enemy) {
+    textDisplay.textContent = `You are being attacked by a level ${enemy.level} ${enemy.name}`
+    enemyDisplay.style.backgroundImage = `url(${enemy.image})`;
+    enemyInfo.textContent = `HP: ${enemy.health}`;
+    
+}
 /*----------  Combat  ----------*/
-
-
-/*----------  Message update  ----------*/
 
 
 
@@ -181,9 +209,28 @@ async function gameClock() {
 function startGame() {
     startWindow.style.visibility = "hidden";
     gameWindow.style.visibility = 'visible';
+
+    //Game Starts
     console.log("Game Start");
     timeElapsed = gameClock();
-}
+
+    //Sets Up Entrance
+    imageDisplay.style.backgroundImage = `url(${entrance.image})`;
+    roomCounterValue += 1;
+    roomCounter.textContent = roomCounterValue;
+    roomName.textContent = entrance.name;
+    textDisplay.textContent = entrance.message;
+    choice1Button.style.visibility = 'visible';
+    choice1Button.textContent = 'YES';
+    
+    choice1Button.addEventListener("click", function() {
+        choice1Button.style.visibility = 'hidden'
+        loadEnemy(enemy)
+        enemyInfo.style.visibility = 'visible'
+        meleeButton.style.visibility = 'visible'
+    })
+
+};
 
 startButton.addEventListener("click", startGame);
 

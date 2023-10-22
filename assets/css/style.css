@@ -264,6 +264,30 @@ main {
                 width: 100%;
             }
 
+                #enemy {
+                    height: 100%;
+                    width: 50%;
+                    justify-content: flex-end;
+                    flex-direction: column;
+                }
+
+                    #enemyInfo {
+                        border-radius: 1rem;
+                        background-color: rgba(0, 0, 0, 0.411);
+                        color: white;
+                        height: 10%;
+                        width: 250px;
+                        margin-bottom: 2%;
+                        visibility: hidden;
+                    }
+
+                    #enemyDisplay {
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        height: 250px;
+                        width: 250px;
+                    }
+
     /* Text Area */
     #textArea {
         border-top: 5px solid white;
@@ -312,9 +336,14 @@ main {
             #textContent {
                 height: 100%;
                 width: 100%;
-                overflow: auto;
-
+                color: black;
             }
+
+                #textDisplay {
+                    color: black;
+                    height: 95%;
+                    width: 98%;
+                }
 
             #textControlBar {
                 height: 30%;
