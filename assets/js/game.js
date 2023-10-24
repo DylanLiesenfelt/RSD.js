@@ -185,7 +185,7 @@ function pullEnemy() {
     while (selectedEnemy.level > level + 2 || selectedEnemy.level < level - 5) {
         randomEnemy = Math.floor(Math.random() * enemyList.length);
         selectedEnemy = enemyList[randomEnemy];
-    }
+    };
 
     return selectedEnemy;
 };
@@ -198,9 +198,33 @@ function loadEnemy(enemy) {
     enemyInfo.textContent = `HP: ${enemy.health}`;
     
 }
+
 /*----------  Combat  ----------*/
+   //Combat function for the player
+    function playerMeleeCombat(attack, dexterity, luck, enemy) {
 
-
+        let playerHitChance = dexterity * Math.floor(Math.random() * (11 + luck)); //Rolls player value for hit calc
+        let enemyEvadeChance = enemy.dexterity * Math.floor(Math.random() * 11); // Rolls enemy value for hit calc
+        let playerMaxDamage = attack * Math.floor(Math.random() * (11 + luck)); //Rolls max damage value for what player can hit
+        let playerCritChance = (luck * Math.floor(Math.random() * (11 + luck)));
+        let enemyDamageTaken = playerMaxDamage - enemy.defense;
+        if (enemyEvadeChance > playerHitChance) {
+            console.log("Player Misses");
+            textDisplay.textContent = `You missed. -0 HP Damage to ${enemy.name}`;
+        } else {
+            if (playerCritChance > enemy.enemyEvadeChance) {
+                console.log('Player Crits')
+                enemy.health -= playerMaxDamage
+                textDisplay.textContent = `Player Critical Hit! -${playerMaxDamage} HP to ${enemy.name}`
+                console.log(`Damage: ${playerMaxDamage}`, `Enemy HP: ${enemy.health}`)
+            } else {
+                console.log('Player Hits')
+                enemy.health -= enemyDamageTaken
+                console.log(`Damage: ${enemyDamageTaken}`, `Enemy HP: ${enemy.health}`)
+            }
+            return enemy.health
+        }
+    };
 
 
 /*=============================================
@@ -229,6 +253,11 @@ function startGame() {
         enemyInfo.style.visibility = 'visible'
         meleeButton.style.visibility = 'visible'
     })
+
+    meleeButton.addEventListener('click', function() {
+        playerMeleeCombat(atk, dex, luck, enemy)
+    })
+    
 
 };
 
