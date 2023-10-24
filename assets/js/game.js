@@ -53,11 +53,11 @@ class Room {
         this.message = message;
     };
 };
-
+//Starting room default
 const entrance = new Room('Entrance', 'assets/images/Rooms/Entrance.jpg', 'You\'ve found the entrance to a Dungeon do you wish to Enter?');
 
-const roomList = [];
-
+//All randomly selected based off of even (right) or odd (left)index.length numbers
+const roomList = []; 
 
 /*=============================================
 =                   Enemies                   =
@@ -79,9 +79,9 @@ const slime = new Enemy('Slime', 2, 10, 1, 2, 1, 'assets/images/Enemies/slime.pn
 const gobbler = new Enemy('Gobbler', 3, 10, 3, 3, 2, ''); //goblin. but more gobble, maybe that thing turkeys got on thier throats
 const basklisk = new Enemy('Basklisk', 5, 20, 5, 10, 5, ''); //beefy lizard
 const gardenHermit = new Enemy('Garden Hermit', 5, 15, 3, 3, 10, ''); // old man wearing a trash bag 
-const lizardMan = new Enemy('Lizard Man', 10, 30, 12, 10, 10, ''); // Mitch McConnel
-const jackedRabbit = new Enemy('Jacked Rabbit', 12, 35, 20, 5, 12, '') // play on jack rabbit, also this image https://ehkern.files.wordpress.com/2016/07/e28098the-smithfield-decretals_-decretals-of-gregory-ix-with-glossa-ordinaria-tolouse-ca-1300-illuminations-added-in-london-ca-1340-british-library-royal-10-e-iv-fol-61v.jpg?w=300&h=290
-const sentinel = new Enemy('Sentinel', 15, 30, 15, 15, 5, '') // A Statue with black eyeholes, like those greek ones
+const lizardMan = new Enemy('Lizard Man', 10, 50, 5, 3, 2, 'assets/images/Enemies/lizardMan.jpeg'); // Mitch McConnel
+const jackedRabbit = new Enemy('Jacked Rabbit', 12, 60, 4, 2, 6, 'assets/images/Enemies/jackedRabbit.webp') // play on jack rabbit, also this image https://ehkern.files.wordpress.com/2016/07/e28098the-smithfield-decretals_-decretals-of-gregory-ix-with-glossa-ordinaria-tolouse-ca-1300-illuminations-added-in-london-ca-1340-british-library-royal-10-e-iv-fol-61v.jpg?w=300&h=290
+const sentinel = new Enemy('Sentinel', 15, 75, 4, 10, 1, 'assets/images/Enemies/sentinel.jpeg') // A Statue with black eyeholes, like those greek ones
 const ashman = new Enemy('Ash Man', 20, 40, 20, 10 , 15, ''); //zombie smoke ash kinda guy
 const hydra = new Enemy();
 const banshee = new Enemy();
@@ -103,7 +103,7 @@ const windogo = new Enemy();
 const skunkape = new Enemy();
 
 
-const enemyList = [rat, slime];
+const enemyList = [rat, slime, jackedRabbit, lizardMan, sentinel];
 
 
 /*=============================================
@@ -117,19 +117,18 @@ const enemyList = [rat, slime];
 /*=============================================
 =                   Player                    =
 =============================================*/
-
 /* Combat Skills */
 let health = 10;
 healthLevel.textContent = `HEALTH: ${health}`;
-let atk = 1;
+let atk = 4;
 attackLevel.textContent = `ATK: ${atk}`;
-let def = 1;
+let def = 4;
 defenseLevel.textContent = `DEF: ${def}`;
-let dex = 1;
+let dex = 5;
 dexterityLevel.textContent = `DEX: ${dex}`;
 let magic = 1;
 magicLevel.textContent = `MAGIC: ${magic}`;
-let luck = 1;
+let luck = 4;
 luckLevel.textContent = `LUCK ${luck}`;
 /* Non-Combat Skills */
 let cook = 1;
@@ -139,7 +138,7 @@ smithingLevel.textContent = `SMITH: ${smith}`;
 let fish = 1;
 fishingLevel.textContent = `FISH: ${fish}`;
 /* Experience */
-let level = 1;
+let level = 15;
 playerLevel.textContent = `LVL: ${level}`;
 let numeratorExp = 0;
 currentExp.textContent = `${numeratorExp} /`;
@@ -203,25 +202,35 @@ function loadEnemy(enemy) {
    //Combat function for the player
     function playerMeleeCombat(attack, dexterity, luck, enemy) {
 
-        let playerHitChance = dexterity * Math.floor(Math.random() * (11 + luck)); //Rolls player value for hit calc
+        let playerHitChance = dexterity * ((Math.floor(Math.random() * 11)) + luck); //Rolls player value for hit calc
         let enemyEvadeChance = enemy.dexterity * Math.floor(Math.random() * 11); // Rolls enemy value for hit calc
-        let playerMaxDamage = attack * Math.floor(Math.random() * (11 + luck)); //Rolls max damage value for what player can hit
-        let playerCritChance = (luck * Math.floor(Math.random() * (11 + luck)));
-        let enemyDamageTaken = playerMaxDamage - enemy.defense;
+        let playerMaxDamage = attack * ((Math.floor(Math.random() * 11)) + luck); //Rolls max damage value for what player can hit
+        let playerCritChance = luck * Math.floor(Math.random() * 11);
+        let enemyDamageTaken = playerMaxDamage - (enemy.defense * (Math.floor(Math.random() * 3)));
+
         if (enemyEvadeChance > playerHitChance) {
             console.log("Player Misses");
             textDisplay.textContent = `You missed. -0 HP Damage to ${enemy.name}`;
+            console.log('Test', `Hit Chance: ${playerHitChance}`, `Enemy Evade: ${enemyEvadeChance}`, `Max Damage: ${playerMaxDamage}`, `Crit Chance: ${playerCritChance}`, `Damage Reg: ${enemyDamageTaken}`)
+            console.log(`Test`, `ATK: ${atk},`, `DEX: ${dex}`, `LUCK: ${luck}`)
+            console.log(`Test enemy dex:${enemy.dexterity}`)
         } else {
-            if (playerCritChance > enemy.enemyEvadeChance) {
+            if (playerCritChance > enemyEvadeChance) {
                 console.log('Player Crits')
                 enemy.health -= playerMaxDamage
-                
-                textDisplay.textContent = `Player Critical Hit! -${playerMaxDamage} HP to ${enemy.name}`
+                textDisplay.textContent = `You Got A Critical Hit! -${playerMaxDamage} HP to ${enemy.name}`
                 console.log(`Damage: ${playerMaxDamage}`, `Enemy HP: ${enemy.health}`)
+                console.log('Test', `Hit Chance: ${playerHitChance}`, `Enemy Evade: ${enemyEvadeChance}`, `Max Damage: ${playerMaxDamage}`, `Crit Chance: ${playerCritChance}`, `Damage Reg: ${enemyDamageTaken}`)
+                console.log(`Test`, `ATK: ${atk},`, `DEX: ${dex}`, `LUCK: ${luck}`)
+                console.log(`Test enemy dex:${enemy.dexterity}`)
             } else {
                 console.log('Player Hits')
                 enemy.health -= enemyDamageTaken
+                textDisplay.textContent = `You hit. -${enemyDamageTaken} HP to ${enemy.name}`
                 console.log(`Damage: ${enemyDamageTaken}`, `Enemy HP: ${enemy.health}`)
+                console.log('Test', `Hit Chance: ${playerHitChance}`, `Enemy Evade: ${enemyEvadeChance}`, `Max Damage: ${playerMaxDamage}`, `Crit Chance: ${playerCritChance}`, `Damage Reg: ${enemyDamageTaken}`)
+                console.log(`Test`, `ATK: ${atk},`, `DEX: ${dex}`, `LUCK: ${luck}`)
+                console.log(`Test enemy dex:${enemy.dexterity}`)
             }
             return enemy.health, enemyInfo.textContent = `HP: ${enemy.health}`;
         }
@@ -254,10 +263,14 @@ function startGame() {
         enemyInfo.style.visibility = 'visible'
         meleeButton.style.visibility = 'visible'
     })
-
+    
+    // add a check for health value of player and enemy to determine if combat is over
     meleeButton.addEventListener('click', function() {
         playerMeleeCombat(atk, dex, luck, enemy)
+        //add enemy combat function
     })
+    
+    //add a check if combat is over give new choice for new room load. if left odd number lengths if right even number lengths of room index
     
 
 };

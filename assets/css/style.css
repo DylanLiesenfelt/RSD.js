@@ -84,8 +84,6 @@ main {
 /*----------  Game Window   ----------*/
 #gameWindow {
     visibility: hidden;
-    min-width: 700px;
-    min-height: 550px;
     max-height: 800px;
     max-width: 1150px;
 }
@@ -95,8 +93,6 @@ main {
     border-right: 5px double white;
     height: 100%;
     width: 35%;
-    min-width: 275px;
-    min-height: 550px;
     flex-direction: column;
 }
 
@@ -105,8 +101,6 @@ main {
         border-bottom: 5px double white;
         width: 100%;
         height: 100%;
-        min-width: 250px;
-        min-height: 250px;
     }
 
         #statsContainer {
@@ -177,8 +171,6 @@ main {
     #inventoryArea {
         width: 100%;
         height: 100%;
-        min-width: 250px;
-        min-height: 250px;
     }
 
         #inventoryContainer {
@@ -220,8 +212,6 @@ main {
 #storyWindow {
     height: 100%;
     width: 65%;
-    min-height: 550px;
-    min-width: 450px;
     flex-direction: column;
 }
         
@@ -368,3 +358,57 @@ main {
                     color: rgba(0, 162, 255, 0.635);
                     background-color: rgba(255, 255, 255, 0.116);
                 }
+
+
+@media only screen and (max-width: 850px) {
+    body {
+        max-width: 850px;
+        max-height: 400px;
+    }
+
+        main {
+            max-width: 850px;
+            max-height: 400px;
+        }
+
+            #gameWindow {
+
+            }
+
+                #playerWindow {
+                    width: 30%;
+                }
+
+                    #statsArea {
+                        height: 40%;
+                    }   
+
+                        #expBar {
+                            height: 70%;
+                        }
+
+                    #inventoryArea {
+                        height: 60%;
+                    }
+                
+                #storyWindow {
+                    width: 100%;
+                }
+
+                    #imageDisplay {
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+
+                    #textInfoBar {
+                        height: 15%;
+                    }
+
+                        #gameClockDisplay> p {
+                            font-size: 0.8rem;
+                        }
+
+                        #currentTime {
+                            font-size: 0.8rem;
+                        }
+}
