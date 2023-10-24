@@ -215,6 +215,7 @@ function loadEnemy(enemy) {
             if (playerCritChance > enemy.enemyEvadeChance) {
                 console.log('Player Crits')
                 enemy.health -= playerMaxDamage
+                
                 textDisplay.textContent = `Player Critical Hit! -${playerMaxDamage} HP to ${enemy.name}`
                 console.log(`Damage: ${playerMaxDamage}`, `Enemy HP: ${enemy.health}`)
             } else {
@@ -222,7 +223,7 @@ function loadEnemy(enemy) {
                 enemy.health -= enemyDamageTaken
                 console.log(`Damage: ${enemyDamageTaken}`, `Enemy HP: ${enemy.health}`)
             }
-            return enemy.health
+            return enemy.health, enemyInfo.textContent = `HP: ${enemy.health}`;
         }
     };
 
