@@ -236,11 +236,11 @@ function loadEnemy(enemy) {
         }
     };
 
-
+ 
 /*=============================================
 =                Game Runtime                =
 =============================================*/
-function startGame() {
+function game() {
     startWindow.style.visibility = "hidden";
     gameWindow.style.visibility = 'visible';
 
@@ -275,5 +275,5 @@ function startGame() {
 
 };
 
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", game);
 
