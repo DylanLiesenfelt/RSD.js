@@ -84,6 +84,7 @@ main {
 /*----------  Game Window   ----------*/
 #gameWindow {
     visibility: hidden;
+    flex-direction: column-reverse;
     max-height: 800px;
     max-width: 1150px;
 }
@@ -92,13 +93,12 @@ main {
 #playerWindow {
     border-right: 5px double white;
     height: 100%;
-    width: 35%;
+    width: 100%;
     flex-direction: column;
 }
 
     /* Stats Area */
     #statsArea {
-        border-bottom: 5px double white;
         width: 100%;
         height: 100%;
     }
@@ -211,7 +211,7 @@ main {
 /* Story Window  */
 #storyWindow {
     height: 100%;
-    width: 65%;
+    width: 100%;
     flex-direction: column;
 }
         

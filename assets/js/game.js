@@ -149,35 +149,6 @@ let heldWeight = 0;
 currentWeight.textContent = `${heldWeight}`;
 let overcumber = 100;
 maxWeight.textContent = `${overcumber} LBS`;
-
-/*=============================================
-=                  Functions                  =
-=============================================*/
-
-
-/*----------  Game Clock  ----------*/
-//Function to delay itterations
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-//Function to count time 
-async function gameClock() {
-    for (let hours = 0; hours < 24; hours++) {
-        for (let minutes = 0; minutes < 60; minutes++) {
-            for (let seconds = 0; seconds < 60; seconds++) {
-                const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-                gameClockDisplay.querySelector('#currentTime').textContent = timeString;
-                await sleep(1000);
-            };
-        };
-    };
-};
-
-
-/*----------  Load New Room  ----------*/
-
-
-
  
 /*=============================================
 =                Game Runtime                =
@@ -185,7 +156,6 @@ async function gameClock() {
 function game() {
     startGame()
     
-     
 };
 
 startButton.addEventListener("click", game);

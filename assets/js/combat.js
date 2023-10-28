@@ -59,7 +59,7 @@ function combat() {
 //     enemyDisplay.style.backgroundImage = `url(${enemy.image})`;
 //     enemyInfo.textContent = `HP: ${enemy.health}`;
     
-}
+
 
 // /*----------  Combat  ----------*/
 //    //Combat function for the player
