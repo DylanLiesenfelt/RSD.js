@@ -40,11 +40,43 @@ main {
 }
 
 #startWindow {
-    visibility: hidden;
+    visibility: visible;
+    flex-direction: column;
+    background-image: url(../images/misc/startBG.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+    #startTitle {
+        height: 60%;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 3%;
+    }
+
+    #startBtnWrap {
+        height: 40%;
+        width: 50%;
+    }
+
+        #startButton {
+            height: 20%;
+            width: 20%;
+            border: 5px double rgb(0, 0, 0);
+            background-color: rgba(0, 16, 49, 0.6);
+        }
+
+        #startButton:hover {
+            background-color: rgba(0, 102, 255, 0.52);
+        }
+
+        #startButton:active {
+            box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.75);
+        }
 
 #gameWindow {
     flex-direction: row-reverse;
+    visibility: hidden;
 }
 
     #playerWindow {

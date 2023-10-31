@@ -153,10 +153,13 @@ maxWeight.textContent = `${overcumber} LBS`;
 /*=============================================
 =                Game Runtime                =
 =============================================*/
+
+
 function game() {
-    startGame()
+    
     
 };
 
-startButton.addEventListener("click", game);
+startButton.addEventListener("click", startGame());
+
 

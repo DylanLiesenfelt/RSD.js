@@ -39,7 +39,7 @@ function startGame() {
         roomCounterValue += 1;
         roomCounter.textContent = roomCounterValue;
     })
-    // First combat
-    combat()
+    
+    game()
 }
     
