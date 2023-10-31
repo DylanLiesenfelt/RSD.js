@@ -15,9 +15,6 @@ const defenseLevel = document.getElementById('defenseLevel');
 const dexterityLevel = document.getElementById('dexterityLevel');
 const magicLevel = document.getElementById('magicLevel');
 const luckLevel = document.getElementById('luckLevel');
-const cookingLevel = document.getElementById('cookingLevel');
-const smithingLevel = document.getElementById('smithingLevel');
-const fishingLevel = document.getElementById('fishingLevel');
 const playerLevel = document.getElementById('playerLevel');
 const expBar = document.getElementById('expBar');
 const currentExp = document.getElementById('currentExp');
@@ -130,18 +127,11 @@ let magic = 1;
 magicLevel.textContent = `MAGIC: ${magic}`;
 let luck = 4;
 luckLevel.textContent = `LUCK ${luck}`;
-/* Non-Combat Skills */
-let cook = 1;
-cookingLevel.textContent = `COOK: ${cook}`;
-let smith = 1;
-smithingLevel.textContent = `SMITH: ${smith}`;
-let fish = 1;
-fishingLevel.textContent = `FISH: ${fish}`;
 /* Experience */
 let level = 15;
 playerLevel.textContent = `LVL: ${level}`;
 let numeratorExp = 0;
-currentExp.textContent = `${numeratorExp} /`;
+currentExp.textContent = `${numeratorExp}`;
 let denominatorExp = 100;
 nextLevelExp.textContent = `/ ${denominatorExp} `;
 /* Inventory */
@@ -160,6 +150,6 @@ function game() {
     
 };
 
-startButton.addEventListener("click", startGame());
+startButton.addEventListener("click", startGame);
 
 

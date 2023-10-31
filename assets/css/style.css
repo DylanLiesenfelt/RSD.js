@@ -138,6 +138,7 @@ main {
                             width: 70%;
                             border-radius: 1rem;
                             background-color: rgba(0, 0, 0, 0.5);
+                            visibility: hidden;
                         }
 
                         #enemyDisplay {
@@ -148,7 +149,7 @@ main {
                         }
 
         #textArea {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.618);
             height: 40%;
             width: 70%;
             bottom: 0;
@@ -195,6 +196,7 @@ main {
                     #textDisplay {
                         height: 100%;
                         width: 98%;
+                        color: yellow;
                     }
 
                 #textControlBar {
@@ -208,6 +210,7 @@ main {
                         border-radius: 0;
                         color: white;
                         background-color: rgba(0, 0, 0, 0.5);
+                        visibility: hidden;
                     }
 
                     .controls:hover {
@@ -291,4 +294,15 @@ main {
                         height: 50%;
                         width: 70%;
                         margin-left: 5%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    #currentExp {
+                        font-size: calc(.5vh + .5vw);
+                        margin-right: 3%;
+                    }
+                    #nextLevelExp {
+                        font-size: calc(.5vh + .5vw);
                     }
