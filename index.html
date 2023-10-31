@@ -20,51 +20,6 @@
         </div>
         <div id="gameWindow" class="wrap window">
             <div id="playerWindow" class="wrap">
-                <div id="statsArea" class="wrap">
-                    <div id="statsContainer" class="wrap">
-                        <div id="statsInfoBar" class="wrap">
-                            <div id="playerName">
-                                Player Name
-                            </div>
-                        </div>
-                        <div id="statsDisplay" class="Wrap">
-                            <ul>
-                                <li id="healthLevel">
-                                </li>
-                                <li id="attackLevel">
-                                </li>
-                                <li id="defenseLevel">
-                                </li>
-                                <li id="dexterityLevel">
-                                </li>
-                                <li id="magicLevel">
-                                </li>
-                                <li id="luckLevel">
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li id="cookingLevel">
-                                </li>
-                                <li id="smithingLevel">
-                                </li> 
-                                <li id="fishingLevel">
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="playerLevelBar" class="wrap">
-                            <div id="playerLevel" class="wrap">
-                                LVL: 1
-                            </div>
-                            <div id="expContainer" class="wrap">
-                                <div id="expBar" class="wrap">
-                                    <p id="currentExp"></p>
-                                    <p id="nextLevelExp"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div id="inventoryArea" class="wrap">
                     <div id="inventoryContainer" class="wrap">
                         <div id="inventoryInfoBar" class="wrap">
@@ -134,10 +89,37 @@
                             <button id="choice3Button" class="controls">
                                 CHOICE 3
                             </button>
-                            <button id="runButton" class="controls">
-                                RUN
+                            <button id="itemButton" class="controls">
+                                ITEM
                             </button>
-
+                        </div>
+                    </div>
+                    <div id="statsContainer" class="wrap">
+                        <div id="statsInfoBar" class="wrap">
+                            <div id="playerInfo" class="wrap">
+                                <h2 id="playerName">Player Name</h2>
+                                <h2 id="playerLevel">Lvl: 1</h2>
+                            </div>
+                        </div>
+                        <div id="statsDisplay" class="wrap">
+                            <ul id="statsList" class="wrap">
+                                <li id="healthLevel">
+                                </li>
+                                <li id="attackLevel">
+                                </li>
+                                <li id="defenseLevel">
+                                </li>
+                                <li id="dexterityLevel">
+                                </li>
+                                <li id="magicLevel">
+                                </li>
+                                <li id="luckLevel">
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="expContainer">
+                            EXP:
+                            <div id="expBar"></div>
                         </div>
                     </div>
                 </div>
