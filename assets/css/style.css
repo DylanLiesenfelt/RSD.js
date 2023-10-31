@@ -29,386 +29,101 @@ a:visited {
 .window {
     border: 5px double white;
     position: fixed;
-    height: 95%;
-    width: 95%;
+    height: 90%;
+    width: 80%;
 }
 
-
-/*=============================================
-=                  ELEMENTS                  =
-=============================================*/
-body {
-    background-color: rgb(6, 25, 34);
+main {
     height: 100vh;
     width: 100%;
+    background-color: rgba(10, 32, 69, 0.849);
 }
 
-/*----------  Main  ----------*/
-main {
-    height: 100%;
-    width: 100%;
-}
-
-/*----------  Start Window  ----------*/
 #startWindow {
-    visibility: visible;
-    flex-direction: column;
-}
-    
-    /* Top and Bottom Divs of Main */
-    #startWindow>div {
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-    }
-
-        /* Start Button */
-        #startButton {
-            height: 20%;
-            width: 15%;
-            border: 5px double white;
-            background-color: inherit;
-        }
-
-        #startButton:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        #startButton:active {
-            background-color: rgba(0, 0, 0, 0.211);
-            color: rgb(38, 101, 226);
-            border-color: rgb(38, 101, 226);
-            box-shadow: 0 0 5px 5px;
-        }
-
-/*----------  Game Window   ----------*/
-#gameWindow {
     visibility: hidden;
-    flex-direction: column-reverse;
-    max-height: 800px;
-    max-width: 1150px;
 }
 
-/* Player Window  */
-#playerWindow {
-    border-right: 5px double white;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
+#gameWindow {
+    flex-direction: row-reverse;
 }
 
-    /* Stats Area */
-    #statsArea {
-        width: 100%;
+    #playerWindow {
+        background-color: yellow;
+        width: 30%;
         height: 100%;
     }
 
-        #statsContainer {
-            background-color: white;
-            height: 94%;
-            width: 94%;
-            flex-direction: column;
-        }
-
-            #statsInfoBar {
-                height: 10.015%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.75);
-
-            }
-
-            #statsDisplay {
-                height: 80%;
-                width: 100%;
-            }
-
-                #statsDisplay>ul {
-                    height: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    padding-left: 1.5%;
-                }
-                    #statsDisplay>ul>li {
-                        display: flex;
-                        align-items: center;
-                        height: 100%;
-                        color: black;
-                    }
-
-            #playerLevelBar {
-                width: 100%;
-                height: 10.015%;
-                background-color: rgba(0, 0, 0, 0.75);
-            }
-
-
-                #playerLevel {
-                    height: 100%;
-                    width: 25%;
-                    justify-content: flex-start;
-                    padding-left: 1.5%;
-                }
-
-                #expContainer {
-                    height: 100%;
-                    width: 75%;
-                    padding-right: 1.5%;
-                }  
-
-                    #expBar  {
-                        background-color: white;
-                        border-radius: 1rem;
-                        color: black;
-                        width: 100%;
-                    }
-
-                    #expBar>p {
-                        color: black;
-                    }
-
-
-    /* Inventory Area */
-    #inventoryArea {
-        width: 100%;
+    #storyWindow {
         height: 100%;
+        width: 70%;
+        flex-direction: column;
     }
 
-        #inventoryContainer {
-            background-color: white;
-            height: 94%;
-            width: 94%;
-            flex-direction: column;
+        #imageArea {
+            outline: 1px solid red;
+            background-color: azure;
+            height: 100%;
+            width: 100%;
         }
-            #inventoryInfoBar {
-                background-color: rgba(0, 0, 0, 0.75);
-                height: 11.26%;
-                width: 100%;
-            }
 
-                #inventoryTitle {
-                    height: 100%;
-                    width: 100%;
-                    padding-left: 1.5%;
-                    justify-content: flex-start;
-                }
-
-                #inventoryWeight {
-                    height: 100%;
-                    width: 100%;
-                    padding-right: 1.5%;
-                    justify-content: flex-end;
-
-                }
-
-            #inventoryDisplay {
+            #imageContainer {
+                outline: 1px solid red;
                 height: 100%;
                 width: 100%;
-
+                flex-direction: column;
             }
 
+                #imageInfoBar {
+                    outline: 1px solid green;
+                    width: 70%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    position: absolute;
+                    top: 0;
+                    justify-content: space-between;
+                }
 
+                    #roomName {
+                        margin-left: 1%;
+                    }
 
-/* Story Window  */
-#storyWindow {
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-}
-        
-    /* Image Area */  
-    #imageArea {
-        height: 60%;
-        width: 100%;
-    }
+                    #roomCounter {
+                        margin-right: 1%;
+                    }
 
-        #imageContainer {
-            background-color: white;
-            height: 95%;
-            width: 96.9%;
-            flex-direction: column;
-        }
-
-            #imageInfoBar{
-                background-color: rgba(0, 0, 0, 0.75);
-                height: 9%;
-                width: 100%;
-            }
-
-                #imageInfoBar>div {
+                #imageDisplay {
+                    outline: 1px solid purple;
                     height: 100%;
                     width: 100%;
-                }
+                } 
 
-                #roomName {
-                    justify-content: flex-start;
-                    padding-left: 1%;
-                }
-
-                #roomCounter {
-                    justify-content: flex-end;
-                    padding-right: 1%;
-                }
-
-            #imageDisplay {
-                height: 100%;
-                width: 100%;
-            }
-
-                #enemy {
-                    height: 100%;
-                    width: 50%;
-                    justify-content: flex-end;
-                    flex-direction: column;
-                }
-
-                    #enemyInfo {
-                        border-radius: 1rem;
-                        background-color: rgba(0, 0, 0, 0.411);
-                        color: white;
-                        height: 10%;
-                        width: 250px;
-                        margin-bottom: 2%;
-                        visibility: hidden;
+                    #enemy {
+                        outline: 1px solid red;
+                        height: 70%;
+                        width: 55%;
+                        flex-direction: column;
+                        padding: 1%;
                     }
 
-                    #enemyDisplay {
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        height: 250px;
-                        width: 250px;
-                    }
+                        #enemyInfo {
+                            outline: 1px solid blue;
+                            height: 10%;
+                            width: 90%;
+                            border-radius: 1rem;
+                        }
 
-    /* Text Area */
-    #textArea {
-        border-top: 5px solid white;
-        height: 40%;
-        width: 100%;
-    }
+                        #enemyDisplay {
+                            outline: 1px solid purple;
+                            height: 100%;
+                            width: 100%;
+                            margin-top: 3%;
+                        }
 
-        #textContainer {
-            background-color: white;
-            height: 93%;
-            width: 97%;
-            flex-direction: column;
+        #textArea {
+            outline: 1px solid greenyellow;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 40%;
+            width: 70%;
+            bottom: 0;
+            position: absolute;
+            z-index: 1;
         }
-
-            #textInfoBar {
-                height: 10%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.75);
-                justify-content: flex-end;
-            }
-
-                #gameClockDisplay {
-                    width: 50%;
-                    height: 100%;
-                    justify-content: flex-end;
-                    
-                }
-
-                    #gameClockDisplay>p {
-                        height: 100%;
-                        width: 25%;
-                        justify-content: flex-end;
-                        padding-right: 1%;
-                        font-size: calc(0.5vw + 0.5vh);
-                    }
-
-                    #currentTime {
-                        height: 100%;
-                        width: 17%;
-                        padding-left: 1%;
-                        justify-content: flex-start;
-                        font-size: calc(0.5vw + 0.5vh);
-                        color: rgb(255, 238, 0);
-                    }
-
-            #textContent {
-                height: 100%;
-                width: 100%;
-                color: black;
-            }
-
-                #textDisplay {
-                    color: black;
-                    height: 95%;
-                    width: 98%;
-                }
-
-            #textControlBar {
-                height: 30%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.10);
-                justify-content: space-evenly;
-
-            }
-
-                .controls {
-                    border: none;
-                    outline: 1px solid rgba(0, 0, 0, 0.124);
-                    height: 100%;
-                    width: 100%;
-                    font-size: 1.5vw;
-                    color: black;
-                    visibility: hidden;
-                }
-                
-                .controls:active {
-                    box-shadow: inset 0 0 15px 5px rgba(0, 128, 255, 0.497);
-                    color: rgba(0, 162, 255, 0.635);
-                    background-color: rgba(255, 255, 255, 0.116);
-                }
-
-
-@media only screen and (max-width: 850px) {
-    body {
-        max-width: 850px;
-        max-height: 400px;
-    }
-
-        main {
-            max-width: 850px;
-            max-height: 400px;
-        }
-
-            #gameWindow {
-
-            }
-
-                #playerWindow {
-                    width: 30%;
-                }
-
-                    #statsArea {
-                        height: 40%;
-                    }   
-
-                        #expBar {
-                            height: 70%;
-                        }
-
-                    #inventoryArea {
-                        height: 60%;
-                    }
-                
-                #storyWindow {
-                    width: 100%;
-                }
-
-                    #imageDisplay {
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    }
-
-                    #textInfoBar {
-                        height: 15%;
-                    }
-
-                        #gameClockDisplay> p {
-                            font-size: 0.8rem;
-                        }
-
-                        #currentTime {
-                            font-size: 0.8rem;
-                        }
-}
