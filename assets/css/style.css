@@ -85,6 +85,57 @@ main {
         height: 100%;
     }
 
+        #menuArea {
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            border: 7px solid rgba(0, 0, 0, 0.75);
+        }
+
+            #equipContainer {
+                height: 50%;
+                width: 100%;
+                border: 7px solid rgba(0, 0, 0, 0.75);
+            }
+
+            #inventoryContainer {
+                height: 50%;
+                width: 100%;
+                border: 7px solid rgba(0, 0, 0, 0.75);
+
+            }
+
+                #inventory {
+                    height: 100%;
+                    width: 100%;
+                    flex-direction: column;
+                }
+
+                    #inventoryHeader {
+                        background-color: rgba(0, 0, 0, 0.75);
+                        height: 10%;
+                        width: 100%;
+                        flex-direction: row;
+                    }
+
+                        #inventoryTitle {
+                            font-size: calc(1vh + 1vw);
+                            height: 100%;
+                            width: 50%;
+                        }
+
+                        #weightContainer {
+                            height: 100%;
+                            width: 50%;
+                        }
+
+                    #inventorySpace {
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                        
+
     #storyWindow {
         height: 100%;
         width: 70%;

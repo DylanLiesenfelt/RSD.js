@@ -19,9 +19,6 @@ const playerLevel = document.getElementById('playerLevel');
 const expBar = document.getElementById('expBar');
 const currentExp = document.getElementById('currentExp');
 const nextLevelExp = document.getElementById('nextLevelExp');
-const inventoryWeight = document.getElementById('inventoryWeight');
-const currentWeight = document.getElementById('currentWeight');
-const maxWeight = document.getElementById('maxWeight');
 /* Story Display Elements */
 const roomName = document.getElementById('roomName');
 const roomCounter = document.getElementById('roomCounter');
@@ -134,11 +131,6 @@ let numeratorExp = 0;
 currentExp.textContent = `${numeratorExp}`;
 let denominatorExp = 100;
 nextLevelExp.textContent = `/ ${denominatorExp} `;
-/* Inventory */
-let heldWeight = 0;
-currentWeight.textContent = `${heldWeight}`;
-let overcumber = 100;
-maxWeight.textContent = `${overcumber} LBS`;
  
 /*=============================================
 =                Game Runtime                =
