@@ -96,7 +96,55 @@ main {
                 height: 50%;
                 width: 100%;
                 border: 7px solid rgba(0, 0, 0, 0.75);
+                flex-direction: column;
             }
+
+                #equipmentHeader {
+                    height: 10%;
+                    width: 100%;
+                    background-color: rgba(0, 0, 0, 0.75);
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+
+                    #equipmentHeader>button {
+                        border: none;
+                        background-color: rgba(0, 0, 0, 0.768);
+                        height: 100%;
+                        width: 20%;
+                        font-size: calc(.5vh + .5vw);
+                        margin-right: 1%;
+                        
+                    }
+
+                    #equipmentHeader>button:hover {
+                        box-shadow: inset 0 0 10px 5px rgb(80, 3, 3);
+                    }
+
+                    #equipmentHeader>button:active {
+                        background-color: rgba(255, 255, 255, 0.486);
+                    }
+
+                #equipDisplay {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                #playerEquipment {
+                    background-color: red;
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    display: block; /* Show this element */
+                }
+                
+                #spellbookDisplay {
+                    background-color: blue;
+                    height: 100%;
+                    width: 100%;
+                    display: none; /* Hide this element */
+                }
+                
 
             #inventoryContainer {
                 height: 50%;

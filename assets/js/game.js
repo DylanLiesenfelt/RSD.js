@@ -19,6 +19,10 @@ const playerLevel = document.getElementById('playerLevel');
 const expBar = document.getElementById('expBar');
 const currentExp = document.getElementById('currentExp');
 const nextLevelExp = document.getElementById('nextLevelExp');
+const equpimentButton = document.getElementById('equipmentButton')
+const playerEquipment = document.getElementById('playerEquipment')
+const spellbookButton = document.getElementById('spellbookButton')
+const spellbookDisplay = document.getElementById('spellbookDisplay')
 /* Story Display Elements */
 const roomName = document.getElementById('roomName');
 const roomCounter = document.getElementById('roomCounter');
@@ -135,7 +139,15 @@ nextLevelExp.textContent = `/ ${denominatorExp} `;
 /*=============================================
 =                Game Runtime                =
 =============================================*/
+equpimentButton.addEventListener("click", function() {
+    playerEquipment.style.display = 'block'
+    spellbookDisplay.style.display = 'none'
+})
 
+spellbookButton.addEventListener("click", function() {
+    playerEquipment.style.display = 'none'
+    spellbookDisplay.style.display = 'block'
+})
 
 function game() {
     
