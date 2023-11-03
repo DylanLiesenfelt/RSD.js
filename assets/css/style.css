@@ -80,7 +80,6 @@ main {
 }
 
     #playerWindow {
-        background-color: yellow;
         width: 30%;
         height: 100%;
     }
@@ -131,18 +130,20 @@ main {
                 }
 
                 #playerEquipment {
-                    background-color: red;
                     position: relative;
                     height: 100%;
                     width: 100%;
-                    display: block; /* Show this element */
+                    display: block;
+                    background-color: rgb(60, 60, 60);
+                    box-shadow: inset 0 0 15px 10px rgba(0, 0, 0, 0.75)
                 }
                 
                 #spellbookDisplay {
-                    background-color: blue;
                     height: 100%;
                     width: 100%;
-                    display: none; /* Hide this element */
+                    display: none;
+                    background-color: rgb(16, 45, 68);
+                    box-shadow: inset 0 0 15px 10px rgba(0, 0, 0, 0.75)
                 }
                 
 
@@ -150,6 +151,8 @@ main {
                 height: 50%;
                 width: 100%;
                 border: 7px solid rgba(0, 0, 0, 0.75);
+                background-color: rgb(62, 51, 17);
+                box-shadow: inset 0 0 15px 10px rgba(0, 0, 0, 0.75)
 
             }
 
@@ -321,13 +324,14 @@ main {
                     }
 
             #statsContainer {
-                background-image: url(../images/misc/leather.jpg);
                 background-size: cover;
                 background-repeat: no-repeat;
                 width: 25%;
                 height: 100%;
                 flex-direction: column;
-                box-shadow: inset 0 0 0 7px rgba(0, 0, 0, 0.75);
+                background-color: brown;
+                box-shadow: inset 0 0 15px 10px rgba(0, 0, 0, 0.75)
+
             }
 
                 #statsInfoBar {

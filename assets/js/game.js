@@ -19,6 +19,7 @@ const playerLevel = document.getElementById('playerLevel');
 const expBar = document.getElementById('expBar');
 const currentExp = document.getElementById('currentExp');
 const nextLevelExp = document.getElementById('nextLevelExp');
+const equipDisplay = document.getElementById('equipDisplay')
 const equpimentButton = document.getElementById('equipmentButton')
 const playerEquipment = document.getElementById('playerEquipment')
 const spellbookButton = document.getElementById('spellbookButton')
@@ -147,6 +148,7 @@ equpimentButton.addEventListener("click", function() {
 spellbookButton.addEventListener("click", function() {
     playerEquipment.style.display = 'none'
     spellbookDisplay.style.display = 'block'
+
 })
 
 function game() {
