@@ -143,11 +143,15 @@ nextLevelExp.textContent = `/ ${denominatorExp} `;
 equpimentButton.addEventListener("click", function() {
     playerEquipment.style.display = 'block'
     spellbookDisplay.style.display = 'none'
+    equpimentButton.style.backgroundColor = 'rgba(92, 83, 83, 0.5)'
+    spellbookButton.style.backgroundColor = 'rgba(0, 0, 0, 0.75)'
 })
 
 spellbookButton.addEventListener("click", function() {
     playerEquipment.style.display = 'none'
     spellbookDisplay.style.display = 'block'
+    spellbookButton.style.backgroundColor = 'rgba(92, 83, 83, 0.5)'
+    equpimentButton.style.backgroundColor = 'rgba(0, 0, 0, 0.75)'
 
 })
 
