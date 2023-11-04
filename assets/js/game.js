@@ -22,8 +22,8 @@ const nextLevelExp = document.getElementById('nextLevelExp');
 const equipDisplay = document.getElementById('equipDisplay')
 const equpimentButton = document.getElementById('equipmentButton')
 const playerEquipment = document.getElementById('playerEquipment')
-const spellbookButton = document.getElementById('spellbookButton')
-const spellbookDisplay = document.getElementById('spellbookDisplay')
+const inventoryButton = document.getElementById('inventoryButton')
+const inventoryDisplay = document.getElementById('inventoryDisplay')
 /* Story Display Elements */
 const roomName = document.getElementById('roomName');
 const roomCounter = document.getElementById('roomCounter');
@@ -142,15 +142,15 @@ nextLevelExp.textContent = `/ ${denominatorExp} `;
 =============================================*/
 equpimentButton.addEventListener("click", function() {
     playerEquipment.style.display = 'block'
-    spellbookDisplay.style.display = 'none'
-    equpimentButton.style.backgroundColor = 'rgba(92, 83, 83, 0.5)'
-    spellbookButton.style.backgroundColor = 'rgba(0, 0, 0, 0.75)'
+    inventoryDisplay.style.display = 'none'
+    equpimentButton.style.backgroundColor = 'orangered'
+    inventoryButton.style.backgroundColor = 'rgba(0, 0, 0, 0.75)'
 })
 
-spellbookButton.addEventListener("click", function() {
+inventoryButton.addEventListener("click", function() {
     playerEquipment.style.display = 'none'
-    spellbookDisplay.style.display = 'block'
-    spellbookButton.style.backgroundColor = 'rgba(92, 83, 83, 0.5)'
+    inventoryDisplay.style.display = 'block'
+    inventoryButton.style.backgroundColor = 'orangered'
     equpimentButton.style.backgroundColor = 'rgba(0, 0, 0, 0.75)'
 
 })
