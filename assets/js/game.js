@@ -9,16 +9,19 @@ const gameWindow = document.getElementById('gameWindow');
 const startButton = document.getElementById('startButton');
 /* Player Display Elements */
 const playerName = document.getElementById('playerName');
-const healthLevel = document.getElementById('healthLevel');
-const attackLevel = document.getElementById('attackLevel');
-const defenseLevel = document.getElementById('defenseLevel');
-const dexterityLevel = document.getElementById('dexterityLevel');
-const magicLevel = document.getElementById('magicLevel');
-const luckLevel = document.getElementById('luckLevel');
+
+const healthLevel = document.getElementById('health');
+const attackLevel = document.getElementById('attack');
+const strengthLevel = document.getElementById('strength')
+const defenseLevel = document.getElementById('defense');
+const dexterityLevel = document.getElementById('dexterity');
+const intelligenceLevel = document.getElementById('intelligence');
+
 const playerLevel = document.getElementById('playerLevel');
 const expBar = document.getElementById('expBar');
 const currentExp = document.getElementById('currentExp');
 const nextLevelExp = document.getElementById('nextLevelExp');
+
 const equipDisplay = document.getElementById('equipDisplay')
 const equpimentButton = document.getElementById('equipmentButton')
 const playerEquipment = document.getElementById('playerEquipment')
@@ -27,18 +30,19 @@ const inventoryDisplay = document.getElementById('inventoryDisplay')
 /* Story Display Elements */
 const roomName = document.getElementById('roomName');
 const roomCounter = document.getElementById('roomCounter');
+
 const imageDisplay = document.getElementById('imageDisplay');
 const enemyDisplay = document.getElementById('enemyDisplay');
 const enemyInfo = document.getElementById('enemyInfo');
+
 const gameClockDisplay = document.getElementById('gameClockDisplay');
 const textDisplay = document.getElementById('textDisplay');
-const meleeButton = document.getElementById('meleeButton');
-const magicButton = document.getElementById('magicButton');
-const choice1Button = document.getElementById('choice1Button');
-const choice2Button = document.getElementById('choice2Button');
-const choice3Button = document.getElementById('choice3Button');
-const runButton = document.getElementById('runButton');
 
+const button1 = document.getElementById('button1');
+const button2 = document.getElementById('button2');
+const button3 = document.getElementById('button3');
+const button4 = document.getElementById('button4');
+const button5 = document.getElementById('button5');
 
 
 /*=============================================
@@ -53,7 +57,7 @@ class Room {
     };
 };
 //Starting room default
-const entrance = new Room('Entrance', 'assets/images/Rooms/Entrance.jpg', 'You\'ve found the entrance to a Dungeon do you wish to Enter?');
+const entrance = new Room('Entrance', 'assets/images/Rooms/Entrance.jpg', 'You\'ve found the entrance to a Dungeon, do you wish to enter?');
 
 //All randomly selected based off of even (right) or odd (left)index.length numbers
 const roomList = []; 
@@ -118,24 +122,25 @@ const enemyList = [rat, slime, jackedRabbit, lizardMan, sentinel];
 =============================================*/
 /* Combat Skills */
 let health = 10;
-healthLevel.textContent = `HEALTH: ${health}`;
+healthLevel.textContent = `${health}`;
 let atk = 4;
-attackLevel.textContent = `ATK: ${atk}`;
+attackLevel.textContent = `${atk}`;
+let str = 4;
+strengthLevel.textContent = `${atk}`;
 let def = 4;
-defenseLevel.textContent = `DEF: ${def}`;
+defenseLevel.textContent = `${def}`;
 let dex = 5;
-dexterityLevel.textContent = `DEX: ${dex}`;
-let magic = 1;
-magicLevel.textContent = `MAGIC: ${magic}`;
-let luck = 4;
-luckLevel.textContent = `LUCK ${luck}`;
+dexterityLevel.textContent = `${dex}`;
+let int = 2;
+intelligenceLevel.textContent = `${int}`;
 /* Experience */
 let level = 15;
 playerLevel.textContent = `LVL: ${level}`;
-let numeratorExp = 0;
-currentExp.textContent = `${numeratorExp}`;
-let denominatorExp = 100;
-nextLevelExp.textContent = `/ ${denominatorExp} `;
+
+// let numeratorExp = 0;
+// currentExp.textContent = `${numeratorExp}`;
+// let denominatorExp = 100;
+// nextLevelExp.textContent = `/ ${denominatorExp} `;
  
 /*=============================================
 =                Game Runtime                =

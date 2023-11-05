@@ -23,19 +23,20 @@ async function gameClock() {
 
 
 function startGame() {
-    startMenu(startWindow, gameWindow, choice1Button);
+    startMenu(startWindow, gameWindow, button1);
     console.log("Game Start");
     timeElapsed = gameClock();
 
-    choice1Button.style.visibility = 'visible'
-    choice1Button.textContent = 'YES';
+    button1.textContent = 'YES';
+    button1.style.background = 'orangered'
 
     imageDisplay.style.backgroundImage = `url(${entrance.image})`;
     textDisplay.textContent = entrance.message;
     roomName.textContent = entrance.name;
     
-    choice1Button.addEventListener("click", function() {
-        choice1Button.style.visibility = 'hidden'
+    button1.addEventListener("click", function() {
+        button1.style.background = 'rgba(255, 68, 0, 0.5)'
+        button1.textContent = ' '
         roomCounterValue += 1;
         roomCounter.textContent = roomCounterValue;
     })
