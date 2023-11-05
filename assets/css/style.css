@@ -30,6 +30,8 @@ a:visited {
     position: fixed;
     height: 90%;
     width: 80%;
+    min-height: 840px;
+    min-width: 1200px;
 }
 
 main {
@@ -238,24 +240,52 @@ main {
                 #imageDisplay {
                     height: 100%;
                     width: 100%;
+                    justify-content: flex-end;
+                    align-items: flex-start;
                 } 
 
                     #enemy {
-                        height: 70%;
+                        height: 65%;
                         width: 40%;
                         flex-direction: column;
                         padding: 1%;
                         top: 5%;
                         position: absolute;
+                        left: 12%;
                     }
 
                         #enemyInfo {
-                            height: 10%;
-                            width: 70%;
-                            border-radius: 1rem;
-                            background-color: rgba(0, 0, 0, 0.5);
-                            visibility: hidden;
+                            height: 15%;
+                            width: 60%;
+                            visibility: visible;
+                            flex-direction: column;
                         }
+
+                            #enemyNameDisplay {
+                                height: 65%;
+                                width: 70%;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                border-radius: 1vw;
+                            }
+
+                            #enemyHpBar {
+                                width: 100%;
+                                height: 35%;
+                                border-radius: 1rem;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                border: 7px double rgb(255, 255, 255);
+                                justify-content: flex-start;
+                                margin-top: 1%;
+                            }
+
+                            #enemyHpBarFill {
+                                height: 100%;
+                                width: 100%;
+                                background-color: rgba(195, 40, 4, 0.85);
+                                border-radius: calc(1vw);
+                            }
+
+
 
                         #enemyDisplay {
                             height: 100%;
@@ -263,6 +293,53 @@ main {
                             margin-top: 3%;
                             border-radius: 50%;
                         }
+
+                    #playerBarsContainer {
+                        height: 55%;
+                        width: 10%;
+                        margin-top: 3%;
+                        flex-direction: column;
+                    }
+
+                        #barsArea {
+                            height: 95%;
+                            width: 100%;
+                        }
+                    
+                            .bars {
+                                height: 92%;
+                                width: 30%;
+                                margin: 7%;
+                                border: 7px double white;
+                                background-color: rgba(0, 0, 0, 0.6);
+                                border-radius: 1vw;
+                                align-items: flex-end;
+                            }
+
+                                #hpBarFill {
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(195, 40, 4, 0.85);
+                                    border-radius: 1vw;
+                                }
+
+                                #manaBarFill {
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(40, 105, 160, 0.85);
+                                    border-radius: 1vw;
+                                }
+                        
+                        #barsTitle {
+                            height: 5%;
+                            width: 100%;
+                            flex-direction: row;
+                        }
+
+                            #barsTitle>div {
+                                width: 50%;
+                                font-size: calc(0.55vh + 0.55vw);
+                            }
 
         #textArea {
             border-top: 7px solid #39464e;
