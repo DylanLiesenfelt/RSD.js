@@ -257,7 +257,7 @@ main {
                         #enemyInfo {
                             height: 15%;
                             width: 60%;
-                            visibility: visible;
+                            visibility: hidden;
                             flex-direction: column;
                         }
 
@@ -371,7 +371,7 @@ main {
 
                     #playerInfo {
                         height: 100%;
-                        width: 100%;
+                        width: 75%;
                         justify-content: flex-start;
                     }
 
@@ -386,15 +386,38 @@ main {
 
                             #playerName {
                                 padding-left: 1%;
+                                width: 20%;
                             }
 
                             #playerLevel {
                                 padding-left: 2%;
+                                width: 10%;
+
                             }
+
+                            #playerExpBarContainer {
+                                height: 100%;
+                                width: 70%;
+                            }
+
+                                #playerExpBar {
+                                    height: 40%;
+                                    width: 90%;
+                                    border: 5px double;
+                                    border-radius: 1vw;
+                                    background-color: rgba(0, 0, 0, 0.75);
+                                }
+
+                                    #playerExpBarFill {
+                                        background-color: rgba(0, 255, 191, 0.771);
+                                        height: 100%;
+                                        width: 100%;
+                                        border-radius: 1vw;
+                                    }
 
                     #gameClockDisplay {
                         height: 100%;
-                        width: 100%;
+                        width: 25%;
                         justify-content: flex-end;
                         margin-right: 1%;
                     }

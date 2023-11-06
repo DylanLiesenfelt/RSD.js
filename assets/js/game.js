@@ -32,6 +32,8 @@ const roomName = document.getElementById('roomName');
 const roomCounter = document.getElementById('roomCounter');
 
 const imageDisplay = document.getElementById('imageDisplay');
+
+const enemyNameDisplay = document.getElementById('enemyNameDisplay')
 const enemyDisplay = document.getElementById('enemyDisplay');
 const enemyInfo = document.getElementById('enemyInfo');
 
