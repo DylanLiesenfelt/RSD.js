@@ -39,8 +39,10 @@ function startGame() {
         button1.textContent = ' '
         roomCounterValue += 1;
         roomCounter.textContent = roomCounterValue;
+        game()
     })
     
-    game()
+    
 }
     
+startButton.addEventListener("click", startGame);
