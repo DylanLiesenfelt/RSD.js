@@ -195,7 +195,6 @@ main {
                         #inventorySpace {
                             height: 90%;
                             width: 100%;
-                            outline: 1px solid red;
                             overflow: auto;
                             background-color: #4e2c1a;
                             flex-wrap: wrap;

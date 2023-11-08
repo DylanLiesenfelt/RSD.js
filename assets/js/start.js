@@ -21,6 +21,8 @@ async function gameClock() {
     };
 };
 
+//Starting room default
+const entrance = new Room('Entrance', 'assets/images/Rooms/Entrance.jpg', 'You\'ve found the entrance to a Dungeon, do you wish to enter?');
 
 function startGame() {
     startMenu(startWindow, gameWindow, button1);

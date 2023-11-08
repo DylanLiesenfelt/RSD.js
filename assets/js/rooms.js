@@ -14,8 +14,7 @@ class Room {
         this.message = message;
     };
 };
-//Starting room default
-const entrance = new Room('Entrance', 'assets/images/Rooms/Entrance.jpg', 'You\'ve found the entrance to a Dungeon, do you wish to enter?');
+
 
 //All randomly selected based off of even (right) or odd (left)index.length numbers
 const roomList = []; 
