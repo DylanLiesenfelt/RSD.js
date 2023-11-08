@@ -3,21 +3,20 @@
 =============================================*/
 const playerName = document.getElementById('playerName');
 
-const healthLevel = document.getElementById('health');
+const luckLevel = document.getElementById('luck');
 const attackLevel = document.getElementById('attack');
 const strengthLevel = document.getElementById('strength')
 const defenseLevel = document.getElementById('defense');
 const dexterityLevel = document.getElementById('dexterity');
 const intelligenceLevel = document.getElementById('intelligence');
-
 const playerLevel = document.getElementById('playerLevel');
-const expBar = document.getElementById('expBar');
-const currentExp = document.getElementById('currentExp');
-const nextLevelExp = document.getElementById('nextLevelExp');
+const hpBarValue = document.getElementById('hpBarFill')
+const manaBarValue = document.getElementById('manaBarFill')
+const expBarValue =document.getElementById('playerExpBarFill')
 
 /* Combat Skills */
-let health = 1;
-healthLevel.textContent = `${health}`;
+let luck = 1;
+luckLevel.textContent = `${luck}`;
 let atk = 1;
 attackLevel.textContent = `${atk}`;
 let str = 1;
@@ -28,9 +27,28 @@ let dex = 1;
 dexterityLevel.textContent = `${dex}`;
 let int = 1;
 intelligenceLevel.textContent = `${int}`;
+
 /* Experience */
 let level = 1;
 playerLevel.textContent = `LVL: ${level}`;
+
+let expGoal = 100;
+let currentExp = 0;
+let expPercent = (currentExp / expGoal) * 100;
+expBarValue.style.width= expPercent + '%';
+
+
+/* HP and Mana */
+let maxHealth = 100;
+let currentHealth = maxHealth;
+let hpPercent = (currentHealth / maxHealth) * 100;
+hpBarValue.style.height = hpPercent + '%';
+
+let maxMana = 50;
+let currentMana = maxMana;
+let manaPercent = (currentMana / maxMana ) * 100;
+manaBarValue.style.height = manaPercent + '%';
+
 
 /*=============================================
 =                   Enemies                   =
@@ -116,52 +134,3 @@ function combat() {
 }
 
 
-// /*----------  Combat  ----------*/
-//    //Combat function for the player
-//     function playerMeleeCombat(attack, dexterity, luck, enemy) {
-
-//         let playerHitChance = dexterity * ((Math.floor(Math.random() * 11)) + luck); //Rolls player value for hit calc
-//         let enemyEvadeChance = enemy.dexterity * Math.floor(Math.random() * 11); // Rolls enemy value for hit calc
-//         let playerMaxDamage = attack * ((Math.floor(Math.random() * 11)) + luck); //Rolls max damage value for what player can hit
-//         let playerCritChance = luck * Math.floor(Math.random() * 11);
-//         let enemyDamageTaken = playerMaxDamage - (enemy.defense * (Math.floor(Math.random() * 3)));
-
-//         if (enemyEvadeChance > playerHitChance) {
-//             console.log("Player Misses");
-//             textDisplay.textContent = `You missed. -0 HP Damage to ${enemy.name}`;
-//             console.log('Test', `Hit Chance: ${playerHitChance}`, `Enemy Evade: ${enemyEvadeChance}`, `Max Damage: ${playerMaxDamage}`, `Crit Chance: ${playerCritChance}`, `Damage Reg: ${enemyDamageTaken}`)
-//             console.log(`Test`, `ATK: ${atk},`, `DEX: ${dex}`, `LUCK: ${luck}`)
-//             console.log(`Test enemy dex:${enemy.dexterity}`)
-//         } else {
-//             if (playerCritChance > enemyEvadeChance) {
-//                 console.log('Player Crits')
-//                 enemy.health -= playerMaxDamage
-//                 textDisplay.textContent = `You Got A Critical Hit! -${playerMaxDamage} HP to ${enemy.name}`
-//                 console.log(`Damage: ${playerMaxDamage}`, `Enemy HP: ${enemy.health}`)
-//                 console.log('Test', `Hit Chance: ${playerHitChance}`, `Enemy Evade: ${enemyEvadeChance}`, `Max Damage: ${playerMaxDamage}`, `Crit Chance: ${playerCritChance}`, `Damage Reg: ${enemyDamageTaken}`)
-//                 console.log(`Test`, `ATK: ${atk},`, `DEX: ${dex}`, `LUCK: ${luck}`)
-//                 console.log(`Test enemy dex:${enemy.dexterity}`)
-//             } else {
-//                 console.log('Player Hits')
-//                 enemy.health -= enemyDamageTaken
-//                 textDisplay.textContent = `You hit. -${enemyDamageTaken} HP to ${enemy.name}`
-//                 console.log(`Damage: ${enemyDamageTaken}`, `Enemy HP: ${enemy.health}`)
-//                 console.log('Test', `Hit Chance: ${playerHitChance}`, `Enemy Evade: ${enemyEvadeChance}`, `Max Damage: ${playerMaxDamage}`, `Crit Chance: ${playerCritChance}`, `Damage Reg: ${enemyDamageTaken}`)
-//                 console.log(`Test`, `ATK: ${atk},`, `DEX: ${dex}`, `LUCK: ${luck}`)
-//                 console.log(`Test enemy dex:${enemy.dexterity}`)
-//             }
-//             return enemy.health, enemyInfo.textContent = `HP: ${enemy.health}`;
-//         }
-//     };
-
-
-
-
-
-    // // add a check for health value of player and enemy to determine if combat is over
-    // meleeButton.addEventListener('click', function() {
-    //     playerMeleeCombat(atk, dex, luck, enemy)
-    //     //add enemy combat function
-    // })
-    
-    // //add a check if combat is over give new choice for new room load. if left odd number lengths if right even number lengths of room index
