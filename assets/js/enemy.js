@@ -62,17 +62,13 @@ function pullEnemy() {
     return selectedEnemy;
 };
 
-let enemy = pullEnemy(enemyList, level);
+// let enemy = pullEnemy(enemyList, level);
 
-function loadEnemy(enemy) {
+function loadEnemy() {
+    let enemy = pullEnemy()
     textDisplay.textContent = `You are being attacked by a level ${enemy.level} ${enemy.name}`
     enemyDisplay.style.backgroundImage = `url(${enemy.image})`;
     enemyInfo.style.visibility = 'visible'
     enemyNameDisplay.textContent = `Lvl ${enemy.level} ${enemy.name}`
-    button1.textContent = 'MELEE';
-    button1.style.background = 'orangered'
-    button2.textContent = 'MAGIC';
-    button2.style.background = 'orangered'
-    button3.textContent = 'ITEM';
-    button3.style.background = 'orangered'
+    return enemy
 }
