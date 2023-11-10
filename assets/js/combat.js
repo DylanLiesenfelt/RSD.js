@@ -3,9 +3,9 @@ function d20() {
 }
 
 function playerHitCheck(enemy) {
-    let playerHitChance = d20() + atk + luck
-    let enemyEvadeChance = d20() + enemy.dex
-
+    let playerHitChance = d20() + atk
+    let enemyEvadeChance = d20() + enemy.dexterity
+    console.log(playerHitChance, enemyEvadeChance)
     if (playerHitChance > enemyEvadeChance) {
         return true
     } else {
@@ -13,19 +13,30 @@ function playerHitCheck(enemy) {
     }
 }
 
-function playerDamgeCalc() {
-   let hit = playerHitCheck(currentEnemy)
+function critCheck(enemy) {
+    let crit = d20() + luck
+    let notCrit = d20() + enemy.defense
 
+    if (crit > notCrit) {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+function playerDamgeCalc(hit) {
+    let damage = Math.ceil(d20() * (str/10))
+    console.log(damage)
    if (hit == true) {
-        return d20() * (str/10)
+        return damage
    } else {
         console.log('miss hit')
-        textDisplay.textContent = 'You missed your attack!'
         return 0
     }
 }
 
-function combat() {
+async function combat() {
     button1.textContent = 'MELEE';
     button1.style.background = 'orangered'
     button2.textContent = 'MAGIC';
@@ -59,14 +70,56 @@ function combat() {
     let playerTurn = true
     let enemyTurn = false
 
-    while (currentEnemy.health >= 0 && currentHealth >= 0) {
+    const maxEnemyHp = currentEnemy.health
+    let currentEnemyHp = currentEnemy.health
+    let enemyHpPercent = (currentEnemyHp/maxEnemyHp) * 100
+    enemyHpBarFill.style.width = enemyHpPercent + '%'
+    // console.log('curHp:' + currentEnemyHp,
+    //             'max:' + maxEnemyHp,
+    //             '%:' + enemyHpPercent,
+    //             'style:' + enemyHpBarFill.style.width)
+
+    while (currentEnemy.health > 0 && currentHealth > 0) {
+        await new Promise(resolve => setTimeout(resolve, 0));
+
         if (currentHealth <= 0) {
             //gameover function
             console.log('You ded')
         } else {
             if (playerTurn == true) {
                 if (meleeSelected == true) {
-                    //critical hit check
+                    
+                    let crit = critCheck(currentEnemy)
+                    let hitChance = playerHitCheck(currentEnemy);
+                    let damage = playerDamgeCalc(hitChance)
+                    //need if miss no hit, if hit check crit
+                    if (crit == true) {
+                        currentEnemy.health -= damage
+                        textDisplay.textContent = `${currentEnemy.name} took ${damage} damage`
+                        currentEnemyHp -= damage
+                        enemyHpPercent
+                        console.log('curHp:' + currentEnemyHp,
+                                    'max:' + maxEnemyHp,
+                                    '%:' + enemyHpPercent,
+                                    'style:' + enemyHpBarFill.style.width)
+                        playerTurn = false
+                        enemyTurn = true
+                        console.log('crit go brr')
+                        console.log(playerTurn, enemyTurn)
+                    }   else {
+                        currentEnemy.health -= (damage - currentEnemy.defense)
+                        textDisplay.textContent = `${currentEnemy.name} took ${damage - currentEnemy.defense} damage`
+                        currentEnemyHp -= (damage - currentEnemy.defense)
+                        console.log('curHp:' + currentEnemyHp,
+                                    'max:' + maxEnemyHp,
+                                    '%:' + enemyHpPercent,
+                                    'style:' + enemyHpBarFill.style.width)
+                        playerTurn = false
+                        playerTurn = false
+                        enemyTurn = true
+                        console.log('normal hitt')
+                        console.log(playerTurn, enemyTurn)
+                    }
                 }
                 if (magicSelected == true) {
                     console.log('spell cast')
@@ -75,12 +128,21 @@ function combat() {
                     console.log('item Selected')
                 }
             }
-        }   
+         
+        if (enemyTurn == true) {
+
+            }    
+        } 
+        
+        if (currentEnemy.health <= 0) {
+            //new room
+            console.log('ENEMY DEAD')
+            // Exp Reward function
+            // Item drop function
+        }
     }
-
-    // Exp Reward function
-    //Item drop function
-
+    await combatRound();
 }
+
 
 

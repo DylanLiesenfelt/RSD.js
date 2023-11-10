@@ -5,6 +5,8 @@
 const enemyNameDisplay = document.getElementById('enemyNameDisplay')
 const enemyDisplay = document.getElementById('enemyDisplay');
 const enemyInfo = document.getElementById('enemyInfo');
+const enemyHpBarFill = document.getElementById('enemyHpBarFill')
+
 
 class Enemy {
     constructor(name, level, health, attack, defense, dexterity, image) {
@@ -19,7 +21,7 @@ class Enemy {
 };
 
 const rat = new Enemy('Rat', 1, 5, 1, 1, 1, 'assets/images/Enemies/rat.png');
-const slime = new Enemy('Slime', 2, 10, 1, 2, 1, 'assets/images/Enemies/slime.png'); 
+const slime = new Enemy('Slime', 2, 10, 1, 1, 1, 'assets/images/Enemies/slime.png'); 
 const gobbler = new Enemy('Gobbler', 3, 10, 3, 3, 2, ''); //goblin. but more gobble, maybe that thing turkeys got on thier throats
 const basklisk = new Enemy('Basklisk', 5, 20, 5, 10, 5, ''); //beefy lizard
 const gardenHermit = new Enemy('Garden Hermit', 5, 15, 3, 3, 10, ''); // old man wearing a trash bag 
@@ -70,5 +72,6 @@ function loadEnemy() {
     enemyDisplay.style.backgroundImage = `url(${enemy.image})`;
     enemyInfo.style.visibility = 'visible'
     enemyNameDisplay.textContent = `Lvl ${enemy.level} ${enemy.name}`
+    
     return enemy
 }

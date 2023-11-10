@@ -21,6 +21,7 @@ const textDisplay = document.getElementById('textDisplay');
 
 
 function game() {
+    console.log('game go brrrr')
     combat()
     
 };

@@ -36,11 +36,12 @@ function startGame() {
     textDisplay.textContent = entrance.message;
     roomName.textContent = entrance.name;
     
-    button1.addEventListener("click", function() {
+    button1.addEventListener("click", function start() {
         button1.style.background = 'rgba(255, 68, 0, 0.5)'
         button1.textContent = ' '
         roomCounterValue += 1;
         roomCounter.textContent = roomCounterValue;
+        button1.removeEventListener("click", start)
         game()
     })
     

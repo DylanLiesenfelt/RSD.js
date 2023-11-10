@@ -347,7 +347,6 @@ main {
 
                             #enemyHpBarFill {
                                 height: 100%;
-                                width: 100%;
                                 background-color: rgba(195, 40, 4, 0.85);
                                 border-radius: calc(1vw);
                             }
