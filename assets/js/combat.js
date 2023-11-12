@@ -13,6 +13,17 @@ function playerHitCheck(enemy) {
     }
 }
 
+function enemyHitCheck(enemy) {
+    let enemyHitChance = d20() + enemy.attack
+    let playerEvadeChance = d20() + dex
+    console.log(enemyHitChance, playerEvadeChance)
+    if (enemyHitChance > playerEvadeChance) {
+        return true
+    } else {
+        return false
+    }
+}
+
 function critCheck(enemy) {
     let crit = d20() + luck
     let notCrit = d20() + enemy.defense
@@ -25,15 +36,16 @@ function critCheck(enemy) {
 }
 
 
-function playerDamgeCalc(hit) {
+function playerDamgeCalc() {
     let damage = Math.ceil(d20() * (str/10))
-    console.log(damage)
-   if (hit == true) {
-        return damage
-   } else {
-        console.log('miss hit')
-        return 0
-    }
+    console.log('Player Damage:', damage)
+    return damage
+}
+
+function enemyDamageCalc(enemy) {
+    let damage = Math.ceil(d20() * (enemy.strength/10))
+    console.log('Enemy Damage:', damage)
+    return damage
 }
 
 async function combat() {
@@ -74,10 +86,7 @@ async function combat() {
     let currentEnemyHp = currentEnemy.health
     let enemyHpPercent = (currentEnemyHp/maxEnemyHp) * 100
     enemyHpBarFill.style.width = enemyHpPercent + '%'
-    // console.log('curHp:' + currentEnemyHp,
-    //             'max:' + maxEnemyHp,
-    //             '%:' + enemyHpPercent,
-    //             'style:' + enemyHpBarFill.style.width)
+    
 
     while (currentEnemy.health > 0 && currentHealth > 0) {
         await new Promise(resolve => setTimeout(resolve, 0));
@@ -88,37 +97,39 @@ async function combat() {
         } else {
             if (playerTurn == true) {
                 if (meleeSelected == true) {
-                    
+                    let hit = playerHitCheck(currentEnemy)
                     let crit = critCheck(currentEnemy)
-                    let hitChance = playerHitCheck(currentEnemy);
-                    let damage = playerDamgeCalc(hitChance)
-                    //need if miss no hit, if hit check crit
-                    if (crit == true) {
-                        currentEnemy.health -= damage
-                        textDisplay.textContent = `${currentEnemy.name} took ${damage} damage`
-                        currentEnemyHp -= damage
-                        enemyHpPercent
-                        console.log('curHp:' + currentEnemyHp,
-                                    'max:' + maxEnemyHp,
-                                    '%:' + enemyHpPercent,
-                                    'style:' + enemyHpBarFill.style.width)
+                    let damage = playerDamgeCalc()
+                    if (hit == true) {
+                        if (crit == true) {
+                            currentEnemy.health -= damage
+                            textDisplay.textContent = `${currentEnemy.name} took ${damage} damage`
+                            currentEnemyHp -= damage
+                            enemyHpPercent
+                            console.log('curHp:' + currentEnemyHp,
+                                        'max:' + maxEnemyHp,
+                                        '%:' + enemyHpPercent,
+                                        'style:' + enemyHpBarFill.style.width)
+                            playerTurn = false
+                            enemyTurn = true
+                            console.log('crit go brr')
+                            console.log(playerTurn, enemyTurn)
+                        }   else {
+                            currentEnemy.health -= (damage - currentEnemy.defense)
+                            textDisplay.textContent = `${currentEnemy.name} took ${damage - currentEnemy.defense} damage`
+                            currentEnemyHp -= (damage - currentEnemy.defense)
+                            console.log('curHp:' + currentEnemyHp,
+                                        'max:' + maxEnemyHp,
+                                        '%:' + enemyHpPercent,
+                                        'style:' + enemyHpBarFill.style.width)
+                            playerTurn = false
+                            enemyTurn = true
+                            console.log('normal hitt')
+                        }
+                    } else {
                         playerTurn = false
                         enemyTurn = true
-                        console.log('crit go brr')
-                        console.log(playerTurn, enemyTurn)
-                    }   else {
-                        currentEnemy.health -= (damage - currentEnemy.defense)
-                        textDisplay.textContent = `${currentEnemy.name} took ${damage - currentEnemy.defense} damage`
-                        currentEnemyHp -= (damage - currentEnemy.defense)
-                        console.log('curHp:' + currentEnemyHp,
-                                    'max:' + maxEnemyHp,
-                                    '%:' + enemyHpPercent,
-                                    'style:' + enemyHpBarFill.style.width)
-                        playerTurn = false
-                        playerTurn = false
-                        enemyTurn = true
-                        console.log('normal hitt')
-                        console.log(playerTurn, enemyTurn)
+                        textDisplay.textContent = "You Missed"
                     }
                 }
                 if (magicSelected == true) {
@@ -128,17 +139,32 @@ async function combat() {
                     console.log('item Selected')
                 }
             }
-         
-        if (enemyTurn == true) {
-
-            }    
-        } 
         
-        if (currentEnemy.health <= 0) {
-            //new room
-            console.log('ENEMY DEAD')
-            // Exp Reward function
-            // Item drop function
+        if (enemyTurn == true) {
+            
+        } else {
+            if (currentEnemy.health <= 0) {
+                //new room
+                console.log('ENEMY DEAD')
+                // Exp Reward function
+                // Item drop function
+            }   else {
+                let enemyDamge = enemyDamageCalc(currentEnemy)
+                let enemyHit = enemyHitCheck(currentEnemy)
+
+                if (enemyHit == true) {
+                    let finalEnemyDamage = (enemyDamge - def)
+                    currentHealth - finalEnemyDamage
+                    console.log("Enemy Damage:", finalEnemyDamage
+                                )
+                    textDisplay.textContent = `${currentEnemy.name} did ${finalEnemyDamage} damgage to you.`
+                    playerTurn = true
+                    enemyTurn = false
+                } else {
+                    textDisplay.textContent = `${currentEnemy.name} missed`
+                }
+            } 
+        } 
         }
     }
     await combatRound();
@@ -146,3 +172,4 @@ async function combat() {
 
 
 
+// fix all this so its functions 

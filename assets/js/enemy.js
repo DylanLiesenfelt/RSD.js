@@ -9,21 +9,22 @@ const enemyHpBarFill = document.getElementById('enemyHpBarFill')
 
 
 class Enemy {
-    constructor(name, level, health, attack, defense, dexterity, image) {
+    constructor(name, level, health, attack, strength, defense, dexterity, image) {
         this.name = name;
         this.level = level;
         this.health = health;
         this.attack = attack;
+        this.strength
         this.defense = defense;
         this.dexterity = dexterity;
         this.image = image;
     };
 };
 
-const rat = new Enemy('Rat', 1, 5, 1, 1, 1, 'assets/images/Enemies/rat.png');
-const slime = new Enemy('Slime', 2, 10, 1, 1, 1, 'assets/images/Enemies/slime.png'); 
-const gobbler = new Enemy('Gobbler', 3, 10, 3, 3, 2, ''); //goblin. but more gobble, maybe that thing turkeys got on thier throats
-const basklisk = new Enemy('Basklisk', 5, 20, 5, 10, 5, ''); //beefy lizard
+const rat = new Enemy('Rat', 1, 5, 1, 1, 1, 1, 'assets/images/Enemies/rat.png');
+const slime = new Enemy('Slime', 2, 10, 1, 1, 1, 1, 'assets/images/Enemies/slime.png'); 
+const gobbler = new Enemy('Gobbler', 3, 10, 3, 1, 3, 2, ''); //goblin. but more gobble, maybe that thing turkeys got on thier throats
+const basklisk = new Enemy('Basklisk', 5, 20, 5, 1, 10, 5, ''); //beefy lizard
 const gardenHermit = new Enemy('Garden Hermit', 5, 15, 3, 3, 10, ''); // old man wearing a trash bag 
 const lizardMan = new Enemy('Lizard Man', 10, 50, 5, 3, 2, 'assets/images/Enemies/lizardMan.jpeg'); // Mitch McConnel
 const jackedRabbit = new Enemy('Jacked Rabbit', 12, 60, 4, 2, 6, 'assets/images/Enemies/jackedRabbit.webp') // play on jack rabbit, also this image https://ehkern.files.wordpress.com/2016/07/e28098the-smithfield-decretals_-decretals-of-gregory-ix-with-glossa-ordinaria-tolouse-ca-1300-illuminations-added-in-london-ca-1340-british-library-royal-10-e-iv-fol-61v.jpg?w=300&h=290
