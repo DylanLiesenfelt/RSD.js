@@ -123,6 +123,7 @@ async function playerAttack(playerTurn, enemyTurn) {
     console.log('Player Turn: ', playerTurn,
                 'Enemy Turn: ', enemyTurn)
     await sleep(3000)
+    // while loop go brr
 }
 
 function updateEnemyDamage(currentEnemy) {
