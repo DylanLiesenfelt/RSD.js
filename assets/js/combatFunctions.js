@@ -101,7 +101,8 @@ function updatePlayerDamage(damage, currentEnemy, hit, crit) {
     let meleeSelected = false
     let magicSelected = false
     let itemSelected  = false
-function playerAttack(playerTurn, enemyTurn) {
+
+async function playerAttack(playerTurn, enemyTurn) {
     
     setCombatControls(meleeSelected, magicSelected, itemSelected)
 
@@ -121,6 +122,7 @@ function playerAttack(playerTurn, enemyTurn) {
     }    
     console.log('Player Turn: ', playerTurn,
                 'Enemy Turn: ', enemyTurn)
+    await sleep(3000)
 }
 
 function updateEnemyDamage(currentEnemy) {
@@ -139,8 +141,9 @@ function updateEnemyDamage(currentEnemy) {
     enemyTurn = false
 }
 
-function enemyAttack(playerTurn, enemyTurn, currentEnemy) {
+async function enemyAttack(playerTurn, enemyTurn, currentEnemy) {
     updateEnemyDamage(currentEnemy)
     console.log('Player Turn: ', playerTurn,
                 'Enemy Turn: ', enemyTurn)
+    await sleep(3000)
 }   
