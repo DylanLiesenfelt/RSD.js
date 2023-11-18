@@ -14,19 +14,9 @@
     > Experience Points: Also very standard here, earn EXP to level up.\
 
     # Combat Skills
-        > Health: Base Skill level is 10, in combat if HP hits 0, GAME OVER.
-        > Attack: ATK determines how strong your melee attacks are, can be modified by melee weapons.
-        > Defense: DEF determines whether enemy attacks have reduced damage or are blocked.
-        > Dexterity: DEX determines players hit chance and if they dodge an enemy attack.
-        > Magic: MAGIC determines what spells are usable by a player. 
-    
-    # Non-Combat Skills (preliminary)
-        > Cooking: COOK determines what food you can make (Buffs and healing)
-        > Black Smithing: SMITH determines what weapons and armor you can make.
-        > Fishing: FISH, determines chance to get fish and what kind of fish.
-        > Luck: boost chances of all RNG based events (combat, skills, loot, etc....)
-
- The Bottom one is the Player inventory menu, which includes: 
-    > Equipped items
-    > Bag: all other non-equipped items in inventory
-
+        -Attack: Determines how accurate your melee atacks are.
+        -Strength: Detrmines how much damage your melee does
+        -Dexterity: Determines how often you evade enemy attacks
+        -Defense: Determines how much damge is reduced by enemy attacks
+        -Intelligence: Determines how much Mana you have 
+        -Luck: Helps with all RNG.
